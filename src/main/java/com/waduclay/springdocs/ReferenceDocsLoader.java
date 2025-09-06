@@ -31,8 +31,8 @@ public class ReferenceDocsLoader {
     }
 
     @PostConstruct
-    private void init(){
-        Integer count = 0;
+    private void init() {
+        int count = 0;
 
         try {
             count = jdbcClient.sql("select count(*) from vector_store")
@@ -44,7 +44,7 @@ public class ReferenceDocsLoader {
         }
 
 
-        if(count == 0){
+        if (count == 0) {
             log.info("Loading Spring Boot Reference PDF into Vector Store");
             PdfDocumentReaderConfig config = PdfDocumentReaderConfig.builder()
                     .withPageExtractedTextFormatter(
